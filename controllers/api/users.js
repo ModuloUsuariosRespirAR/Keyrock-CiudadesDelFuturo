@@ -199,7 +199,7 @@ exports.create = function (req, res) {
       const user = models.user.build(req.body.user);
 
       user.image = 'default';
-      user.enabled = req.body.user.enabled ? req.body.user.enabled : req.user.enabled;
+      user.enabled = false;
       user.id = uuid.v4();
       user.date_password = new Date(new Date().getTime());
       return user.validate();
