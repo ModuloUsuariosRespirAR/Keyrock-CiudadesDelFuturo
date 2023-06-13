@@ -274,7 +274,7 @@ exports.info = function (req, res) {
 exports.update = function (req, res) {
   debug('--> update');
   debug('--> facu');
-  debug('--> user:',req.body.user);
+  //debug('--> user:',req.body.user);
 
   let user_previous_values = null;
   check_update_body_request(req.body)
@@ -296,6 +296,7 @@ exports.update = function (req, res) {
       return req.user.validate();
     })
     .then(function () {
+      debug('--> user save:',req.user);
       return req.user.save();
     })
     .then(function () {
