@@ -273,6 +273,8 @@ exports.info = function (req, res) {
 // PUT /v1/users/:user_id -- Edit user
 exports.update = function (req, res) {
   debug('--> update');
+  debug('--> facu');
+  debug('--> user:',req.body.user);
 
   let user_previous_values = null;
   check_update_body_request(req.body)
