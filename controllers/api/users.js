@@ -292,10 +292,11 @@ exports.update = function (req, res) {
         req.user.password = req.body.user.password;
         req.user.date_password = new Date(new Date().getTime());
       }
-
+      debug('--> user prev validate:',req.user.enabled);
       return req.user.validate();
     })
     .then(function () {
+      debug('--> user prev save:',req.user.enabled);
       debug('--> user save:',req.user);
       return req.user.save();
     })
