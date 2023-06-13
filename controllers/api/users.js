@@ -287,7 +287,7 @@ exports.update = function (req, res) {
       req.user.website = req.body.user.website ? req.body.user.website : req.user.website;
       req.user.gravatar = req.body.user.gravatar ? req.body.user.gravatar : req.user.gravatar;
       req.user.extra = req.body.user.extra ? req.body.user.extra : req.user.extra;
-      req.user.enabled = req.body.user.enabled ? req.body.user.enabled : req.user.enabled;
+      req.user.enabled = req.body.user.enabled;
       if (req.body.user.password) {
         req.user.password = req.body.user.password;
         req.user.date_password = new Date(new Date().getTime());
