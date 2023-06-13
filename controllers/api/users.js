@@ -199,7 +199,7 @@ exports.create = function (req, res) {
       const user = models.user.build(req.body.user);
 
       user.image = 'default';
-      user.enabled = true;
+      user.enabled = req.body.user.enabled ? req.body.user.enabled : req.user.enabled;
       user.id = uuid.v4();
       user.date_password = new Date(new Date().getTime());
       return user.validate();
@@ -285,7 +285,7 @@ exports.update = function (req, res) {
       req.user.website = req.body.user.website ? req.body.user.website : req.user.website;
       req.user.gravatar = req.body.user.gravatar ? req.body.user.gravatar : req.user.gravatar;
       req.user.extra = req.body.user.extra ? req.body.user.extra : req.user.extra;
-      req.user.enabled = true;
+      req.user.enabled = req.body.user.enabled ? req.body.user.enabled : req.user.enabled;
       if (req.body.user.password) {
         req.user.password = req.body.user.password;
         req.user.date_password = new Date(new Date().getTime());
